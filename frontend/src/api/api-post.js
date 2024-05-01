@@ -13,7 +13,7 @@ const create = async (params, credentials, post) => {
         body: JSON.stringify(post), 
     };
 
-  let response = await fetch('http://localhost:4000/api/post/'+params.userId,requestOptions)
+  let response = await fetch('api/post/'+params.userId,requestOptions)
 
     const Data = await response.json();
      return Data;
@@ -36,7 +36,7 @@ const getFeed = async (params, credentials,signal)=>{
         
     };
 
-    let response = await fetch('http://localhost:4000/api/post/feed/'+params.userId,requestOptions)
+    let response = await fetch('api/post/feed/'+params.userId,requestOptions)
 
     const Data =  response.json();
      return Data;
@@ -61,7 +61,7 @@ const getFeedUser = async (params, credentials,signal)=>{
         
     };
 
-    let response = await fetch('http://localhost:4000/api/post/feedUser/'+params.userId,requestOptions)
+    let response = await fetch('api/post/feedUser/'+params.userId,requestOptions)
 
     const Data = await response.json();
      return Data;
@@ -73,7 +73,7 @@ const getFeedUser = async (params, credentials,signal)=>{
 }
 const findPeoplee = async (params, credentials,signal) => {
   try {
-    let response = await fetch('http://localhost:4000/api/users/findpeople/' + params.userId, {
+    let response = await fetch('api/users/findpeople/' + params.userId, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
@@ -90,7 +90,7 @@ const findPeoplee = async (params, credentials,signal) => {
 }
 const remove = async (params, credentials) => {
   try {
-    let response = await fetch('http://localhost:4000/api/post/' + params.postId, {
+    let response = await fetch('api/post/' + params.postId, {
       method: 'DELETE',
       headers: {
         'Accept': 'application/json',
@@ -109,7 +109,7 @@ const follow =async (params, credentials, followId)=>{
   console.log("fl")
 
 try {
-    let response = await fetch('http://localhost:4000/api/users/follow/', {
+    let response = await fetch('api/users/follow/', {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',
@@ -131,7 +131,7 @@ const unfollow =async (params, credentials, unfollowId)=>{
 
 
 try {
-    let response = await fetch('http://localhost:4000/api/users/unfollow/', {
+    let response = await fetch('api/users/unfollow/', {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',
@@ -151,7 +151,7 @@ const Like =async(params ,credentials, postId  )=>{
 
   try {
     
-    let response = await fetch('http://localhost:4000/api/post/like',
+    let response = await fetch('api/post/like',
     {
       method :'PUT',
       headers:{
@@ -173,7 +173,7 @@ const unlike =async(params ,credentials, postId  )=>{
 
   try {
     
-    let response = await fetch('http://localhost:4000/api/post/unlike',
+    let response = await fetch('api/post/unlike',
     {
       method :'PUT',
       headers:{
@@ -192,7 +192,7 @@ const unlike =async(params ,credentials, postId  )=>{
 
 const comment = async (params, credentials, postId, comment) => {
   try {
-    let response = await fetch('http://localhost:4000/api/post/comment/', {
+    let response = await fetch('api/post/comment/', {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',
@@ -209,7 +209,7 @@ const comment = async (params, credentials, postId, comment) => {
 
 const read = async (params, credentials, signal) => {
   try {
-    let response = await fetch('http://localhost:4000/api/users/' + params.userId, {
+    let response = await fetch('api/users/' + params.userId, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
@@ -234,7 +234,7 @@ const checkFollow = (user,jwt) => {
 const update = async (params, credentials, Values) => {
   let v = {name:"FFF"}
   try {
-    let response = await fetch('http://localhost:4000/api/users/update/' + params.userId, {
+    let response = await fetch('api/users/update/' + params.userId, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -251,7 +251,7 @@ const uncomment = async (params, credentials, postId, comment) => {
 console.log(params.userId , postId , comment)
 
   try {
-    let response = await fetch('http://localhost:4000/api/post/uncomment/', {
+    let response = await fetch('api/post/uncomment/', {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',
@@ -269,7 +269,7 @@ console.log(params.userId , postId , comment)
 const searchuser = async (params, credentials,se) => {
   console.log(se);
   try {
-    let response = await fetch(`http://localhost:4000/api/users/?search=${se.search}`, {
+    let response = await fetch(`api/users/?search=${se.search}`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
@@ -285,7 +285,7 @@ const searchuser = async (params, credentials,se) => {
 
 const getChat = async (params, credentials,se) => {
   try {
-    let response = await fetch(`http://localhost:4000/api/chat/`, {
+    let response = await fetch(`api/chat/`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -303,7 +303,7 @@ const getChat = async (params, credentials,se) => {
 const getMessage = async (params, credentials,se) => {
   console.log(se)
   try {
-    let response = await fetch(`http://localhost:4000/api/message/${se}`, {
+    let response = await fetch(`api/message/${se}`, {
       method: 'Get',
       headers: {
         'Accept': 'application/json',
@@ -320,7 +320,7 @@ const getMessage = async (params, credentials,se) => {
 const setMessage = async (params, credentials,se) => {
   console.log(params)
   try {
-    let response = await fetch(`http://localhost:4000/api/message/`, {
+    let response = await fetch(`api/message/`, {
       method: 'Post',
       headers: {
         'Accept': 'application/json',
@@ -338,7 +338,7 @@ const setMessage = async (params, credentials,se) => {
 
 const fetchChats = async (params, credentials,se) => {
   try {
-    let response = await fetch(`http://localhost:4000/api/chat/`, {
+    let response = await fetch(`api/chat/`, {
       method: 'Get',
       headers: {
         'Accept': 'application/json',

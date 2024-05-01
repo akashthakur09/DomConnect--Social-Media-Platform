@@ -94,9 +94,12 @@ const __dirname1 = path.resolve();
 //   });
 // }
 
+app.use(express.static(path.join(__dirname,'build')));
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname,'build', 'index.html'));
+});
 
-
-app.use(express.static(path.join(__dirname, "build")));
+// app.use(express.static(path.join(__dirname, "build")));
 
 // --------------------------deployment------------------------------
 

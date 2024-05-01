@@ -39,7 +39,7 @@ const handleClick = async (event) => {
         
     };
     try{
-    const response = await fetch('http://localhost:4000/api/users/login', requestOptions);
+    const response = await fetch('api/users/login', requestOptions);
     const Data = await response.json();
     console.log(Data);
     
