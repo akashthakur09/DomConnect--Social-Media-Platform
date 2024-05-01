@@ -235,7 +235,7 @@ const NavBar = () => {
                     placeholder="Search here"
                     InputProps={{
                       ...params.InputProps,
-                      disableUnderline: true, // Remove underline for cleaner look
+                      disableUnderline: true, // Remove underline from input
                       startAdornment: (
                         <Box
                           sx={{
